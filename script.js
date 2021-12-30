@@ -36,11 +36,16 @@ const card = document.querySelector('.card');
 const container = document.querySelector('.container');
 
 let round = 1;
+
 let p = document.createElement("div");
 p.className = 'result';
 card.appendChild(p);
+
+//TO DO 
 const regex = /[A-Z]/g;
+
 let numberOfRound = document.createElement("div");
+numberOfRound.className = "howManyRound";
 card.appendChild(numberOfRound);
 
 function generateRandomWOD() {
