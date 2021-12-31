@@ -95,3 +95,42 @@ form {
 .scroll {
     overflow-y: scroll;
 }
+
+
+@media screen and (max-width: 500px){
+    .container {
+        padding-bottom: 2rem;
+        margin: 0; 
+        .card {
+            .howManyRound {
+                p {
+                    font-size: 14px;
+                }
+            }
+            .result {
+                p {
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+    form {
+        .head {
+            label {
+                font-size: 14px;
+            }
+
+            input {
+                font-size: 12px;
+            }
+        }
+        .btn_container {
+            button {
+                font-size: 12px;
+                letter-spacing: 0;
+                width: 75px;
+            }
+        }
+    }
+
+}

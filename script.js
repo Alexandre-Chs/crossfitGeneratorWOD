@@ -1,3 +1,4 @@
+//--------ALL EXERCICES--------
 const muscleExercice = {
     'A': '10 push ups',
     'B': '15 Air squat',
@@ -26,7 +27,8 @@ const muscleExercice = {
     'Y': '1" Hollow Rocks',
     'Z': '15 Arch Hold'
 }
-// Ground sheet, skipping rope, box, drawbar, 
+
+//--------QUERYSELECTOR --------
 const nameInput = document.querySelector('#name');
 const submitBeginner = document.querySelector('#beginner');
 const submitInter = document.querySelector('#intermediate');
@@ -35,31 +37,35 @@ const result = document.querySelector('.result');
 const card = document.querySelector('.card');
 const container = document.querySelector('.container');
 
+//--------INITIALIZE ROUND--------
 let round = 1;
 
+//--------CREATE ELEMENT--------
+//ELEMENT NUMBER OF ROUND
+let numberOfRound = document.createElement("div");
+numberOfRound.className = "howManyRound";
+card.appendChild(numberOfRound);
+//ELEMENT WOD
 let p = document.createElement("div");
 p.className = 'result';
 card.appendChild(p);
 
-//TO DO 
-const regex = /[A-Z]/g;
 
-let numberOfRound = document.createElement("div");
-numberOfRound.className = "howManyRound";
-card.appendChild(numberOfRound);
-
+//--------FUNCTIONS--------
 function generateRandomWOD() {
+    //split string to compare value
     let splitName = nameInput.value.split('');
+    //make a array, for each -> if element same key, add the value
     splitName.forEach(element => {
             for (const [key, value] of Object.entries(muscleExercice)) {
                 if(element.toUpperCase() === key) {
                     p.innerHTML += `<p>${value}</p>`
                 }
             }
-    })
-    
+    })  
 }
 
+//--------SUBMIT ON CLICK--------
 submitBeginner.addEventListener('click', e => {
     addScroll()
     clearHTML();
@@ -84,7 +90,7 @@ submitPro.addEventListener('click', e => {
     e.preventDefault();
 })
 
-
+//--------CLEAR HTML IN GENERATOR--------
 function clearHTML() {
     if(p,numberOfRound) {
         p.innerHTML = ``;
@@ -92,8 +98,12 @@ function clearHTML() {
     }    
 }
 
+//--------RANDOM NUMBER FOR ELEMENT NUMBER OF ROUND--------
+//--------REGEX--------
+let regex = /[a-z]/gi;
+
 function begginer() {
-    if(nameInput.value) {
+    if(nameInput.value && String(nameInput.value).match(regex)) {
         let begin = round+1;
         numberOfRound.innerHTML = `<p>Number of round : ${begin}</p>`
     } else {
@@ -102,7 +112,7 @@ function begginer() {
 }
 
 function inter() {
-    if(nameInput.value) {
+    if(nameInput.value && String(nameInput.value).match(regex)) {
         let begin = Math.floor(Math.random() * (5 - 3) + 3);
         numberOfRound.innerHTML = `<p>Number of round : ${begin}</p>`
     } else {
@@ -111,7 +121,7 @@ function inter() {
 }
 
 function pro() {
-    if(nameInput.value) {
+    if(nameInput.value && String(nameInput.value).match(regex)) {
         let begin = Math.floor(Math.random() * (8 - 5) + 5);
         numberOfRound.innerHTML = `<p>Number of round : ${begin}</p>`
     } else {
@@ -119,10 +129,12 @@ function pro() {
     }  
 }
 
+//--------FUNCTION TO ADD A SCROLL IF INPUT.LENGTH > 10--------
 function addScroll() {
-    if(nameInput.value.length > 12) {
+    if(nameInput.value.length > 10) {
         container.classList.add('scroll')
     } else {
         container.classList.remove('scroll')
     }
 }
+

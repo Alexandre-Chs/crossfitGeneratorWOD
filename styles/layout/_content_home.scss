@@ -17,3 +17,19 @@
     }
 }
 
+@media screen  and (max-width: 1200px) {
+    html,body {
+        overflow-x: hidden;
+    }
+    
+   .container_index {
+       width: 80%;
+       font-size: 12px;
+       margin-top: 5rem;
+       padding-bottom: 1rem;
+   }
+   h1,h3 {
+       font-size: 16px;
+   }
+}
+

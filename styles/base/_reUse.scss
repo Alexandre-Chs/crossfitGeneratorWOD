@@ -1,8 +1,10 @@
+html,body {
+    overflow-x: hidden;
+}
 body {
     display: flex;
     align-items: center;
     flex-direction: column;
-    overflow-x: hidden;
     height: 100vh;
 }
 
@@ -37,4 +39,132 @@ body {
         visibility: visible;
         transform: scaleX(1);
     }
+}
+
+.leftSlide {
+    display:none;
+    z-index: 1;
+    ul {
+        margin-top: 4rem;
+        li {
+            padding-top: 1rem;
+            text-align: center;
+            list-style: none;
+            a {
+                font-size: 12px;
+                color: $white;
+                text-decoration: none;
+            }
+        }
+    }
+    .social-mobile {
+        width: 10px;
+        z-index: 3;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        height: 100px;
+        width: 200px;
+        font-size: 12px;
+        transform: translateX(-25px);
+        img {
+            height: 30px;
+            width: 30px;
+        }
+        p {
+            font-weight: 400;
+            letter-spacing: 1px;
+        }
+    }
+}
+
+.active {
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: 150px;
+    background-color: $red;
+}
+
+.social {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    color: $red;
+    font-weight: 700;
+    img {
+        transform: translateX(10px);
+        margin-right: 1rem;
+        height: 50px;
+        width: 50px;
+    }
+}
+
+.social-mobile {
+    display: none;
+}
+
+@media screen and (max-width: 1100px) {
+    .social {
+        display: none;
+    }
+}
+@media screen and(max-width: 625px) {
+    .navBar {
+        a {
+            font-size: 12px;
+            display: none;
+        }
+
+        .hamburger {
+            display: flex;
+            position: relative;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            left: 35px;
+            top: 20px;
+            z-index: 2;
+            height: 20px;
+            width: 25px;
+            cursor: pointer;
+            .bar {
+                display: block;
+                height: 2px;
+                width: 100%;
+                background-color: #FFF;
+            }
+            .bar::before {
+                content: '';
+                width: 100%;
+                height: 2px;
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                background-color: #FFF;
+            }
+            .bar::after {
+                content: '';
+                width: 100%;
+                height: 2px;
+                position: absolute;
+                top: 0;
+                left: 0;
+                background-color: #FFF;
+            }
+        }
+    }
+
+    
+
 }
